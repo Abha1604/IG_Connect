@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IG_Connect"
         tools:targetApi="31">
-
+        <activity
+            android:name=".AfterLoginActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
