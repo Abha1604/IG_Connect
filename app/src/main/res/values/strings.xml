@@ -9,4 +9,7 @@
     <string name="Chats">Chats</string>
     <string name="Profile">Profile</string>
     <string name="click_me">Click Me</string>
+    <string name="list_of_communities">List of communities</string>
+    <string name="community_title">Community Title</string>
+    <string name="community_description_goes_here">Community description goes here.</string>
 </resources>
