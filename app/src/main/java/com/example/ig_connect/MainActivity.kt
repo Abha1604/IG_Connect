@@ -20,16 +20,16 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-//         Find the button by its ID
-//        val clickButton: Button = findViewById(R.id.clickButton)
-//        // Set an OnClickListener on the button
-//        clickButton.setOnClickListener {
-//            // Create an intent to open the HomePage activity
-//            val intent = Intent(this@MainActivity, AfterLoginActivity::class.java)
-//
-//            // Start the new activity
-//            startActivity(intent)
-//        }
+         //Find the button by its ID
+        val clickButton: Button = findViewById(R.id.clickButton)
+        // Set an OnClickListener on the button
+        clickButton.setOnClickListener {
+            // Create an intent to open the HomePage activity
+            val intent = Intent(this@MainActivity, AfterLoginActivity::class.java)
+
+            // Start the new activity
+            startActivity(intent)
+        }
 
 
     }
