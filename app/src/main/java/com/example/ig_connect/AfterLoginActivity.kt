@@ -28,6 +28,7 @@ class AfterLoginActivity : AppCompatActivity() , NavigationView.OnNavigationItem
             insets
         }
         setSupportActionBar(binding.toolbar)
+        openFragment(HomeFragment())
         binding.bottomNavigation.background=null
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
