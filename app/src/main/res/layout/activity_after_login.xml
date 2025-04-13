@@ -31,7 +31,7 @@
                     android:layout_alignParentBottom="true"
                     app:labelVisibilityMode="labeled"
                     app:menu="@menu/bottom_menu"
-                    android:background="@color/blue"
+                    android:background="@color/darkBlue"
                     app:itemBackground="@color/white"
                     />
     </RelativeLayout>
