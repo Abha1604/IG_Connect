@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="blue">#85DAFF</color>
     <color name="darkBlue">#091459</color>
+    <color name="purple_50">#F3E5F5</color>
+    <color name="purple_100">#E1BEE7</color>
+    <color name="purple_200">#CE93D8</color>
+    <color name="purple_300">#BA68C8</color>
+    <color name="purple_400">#AB47BC</color>
+    <color name="purple_500">#9C27B0</color>  <!-- Primary color -->
+    <color name="purple_600">#8E24AA</color>
+    <color name="purple_700">#7B1FA2</color>
+    <color name="purple_800">#6A1B9A</color>
+    <color name="purple_900">#4A148C</color>
+
+    <!-- Complementary Colors -->
+    <color name="purple_accent_100">#EA80FC</color>
+    <color name="purple_accent_200">#E040FB</color>
+    <color name="purple_accent_400">#D500F9</color>
+    <color name="purple_accent_700">#AA00FF</color>
+
+    <!-- Neutral Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Gray Scale -->
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>  <!-- Card stroke color -->
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>  <!-- Subtitle text color -->
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <!-- Status Colors -->
+    <color name="success_green">#4CAF50</color>
+    <color name="error_red">#F44336</color>
+    <color name="warning_yellow">#FFC107</color>
+    <color name="info_blue">#2196F3</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#DE000000</color>  <!-- 87% black -->
+    <color name="text_secondary">#8A000000</color>  <!-- 54% black -->
+    <color name="text_hint">#61000000</color>  <!-- 38% black -->
+    <color name="text_primary_inverse">#FFFFFF</color>  <!-- White text -->
+    <color name="text_secondary_inverse">#B3FFFFFF</color>  <!-- 70% white -->
+    <color name="text_hint_inverse">#80FFFFFF</color>  <!-- 50% white -->
+
+    <!-- Background Colors -->
+    <color name="background_light">#FFFFFF</color>
+    <color name="background_dark">#303030</color>
+    <color name="background_surface">#FFFFFF</color>  <!-- Card background -->
+    <color name="background_error">#FFF5F5</color>
+
+    <!-- Component Colors -->
+    <color name="divider_color">#1F000000</color>  <!-- 12% black -->
+    <color name="ripple_color">#1F9C27B0</color>  <!-- 12% purple_500 -->
 </resources>
