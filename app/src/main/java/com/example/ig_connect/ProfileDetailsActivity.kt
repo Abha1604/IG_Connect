@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ig_connect.databinding.ActivityProfileDetailsBinding
+import com.example.ig_connect.models.ProfileDetailsRequest
 import java.util.Calendar
 
 class ProfileDetailsActivity : AppCompatActivity() {
@@ -20,17 +21,19 @@ class ProfileDetailsActivity : AppCompatActivity() {
         binding = ActivityProfileDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (intent.getStringExtra("USER_EMAIL") == null) {
+        val userName = intent.getStringExtra("USER_NAME") ?: ""
+        val userEmail = intent.getStringExtra("USER_EMAIL") ?: run {
             Toast.makeText(this, "User data missing", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
         setupUI()
-        setupClickListeners()
+        setupClickListeners(userName, userEmail)
     }
 
     private fun setupUI() {
+        // Department Spinner
         ArrayAdapter.createFromResource(
             this,
             R.array.departments_array,
@@ -40,8 +43,8 @@ class ProfileDetailsActivity : AppCompatActivity() {
             binding.spinnerDepartment.adapter = adapter
         }
 
-        val currentYear = Calendar.getInstance().get(Calendar.YEAR)
-        val years = (currentYear..currentYear + 4).toList()
+        // Year Spinner (Next 5 years)
+        val years = (Calendar.getInstance().get(Calendar.YEAR)..Calendar.getInstance().get(Calendar.YEAR) + 4).toList()
         ArrayAdapter(
             this,
             android.R.layout.simple_spinner_item,
@@ -51,7 +54,7 @@ class ProfileDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupClickListeners() {
+    private fun setupClickListeners(name: String, email: String) {
         binding.etStartDate.setOnClickListener { showDatePicker(true) }
         binding.etEndDate.setOnClickListener { showDatePicker(false) }
 
@@ -62,9 +65,49 @@ class ProfileDetailsActivity : AppCompatActivity() {
 
         binding.btnSubmit.setOnClickListener {
             if (validateInputs()) {
-                saveProfileAndProceed()
+                val profileData = createProfileRequest(name, email)
+                saveProfileLocally(profileData)
+                navigateToMain()
             }
         }
+    }
+
+    private fun createProfileRequest(name: String, email: String): ProfileDetailsRequest {
+        return ProfileDetailsRequest(
+            userId = "demo_user_${System.currentTimeMillis()}", // Mock ID
+            photoURL = binding.etPhotoUrl.text.toString(),
+            skills = binding.etSkills.text.toString().split(",").map { it.trim() },
+            bio = binding.etBio.text.toString(),
+            department = binding.spinnerDepartment.selectedItem.toString(),
+            year = binding.spinnerYear.selectedItem.toString().toInt(),
+            cgpa = binding.etCGPA.text.toString(),
+            linkedin = binding.etLinkedIn.text.toString(),
+            isMentor = binding.switchMentor.isChecked,
+            experience = if (binding.etStartDate.text.isNullOrEmpty()) {
+                listOf(
+                    ProfileDetailsRequest.Experience(
+                        position = binding.etPosition.text.toString(),
+                        company = binding.etCompany.text.toString(),
+                        startDate = binding.etStartDate.text.toString(),
+                        endDate = if (binding.cbCurrentlyWorking.isChecked) null else binding.etEndDate.text.toString(),
+                        description = binding.etExpDescription.text.toString(),
+                        currentlyWorking = binding.cbCurrentlyWorking.isChecked
+                    )
+                )
+            } else emptyList()
+        )
+    }
+
+    private fun saveProfileLocally(profile: ProfileDetailsRequest) {
+        // In a real app, save to SharedPreferences or Room Database
+        Toast.makeText(this, "Profile saved locally!", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun navigateToMain() {
+        startActivity(Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        })
+        finish()
     }
 
     private fun showDatePicker(isStartDate: Boolean) {
@@ -72,11 +115,8 @@ class ProfileDetailsActivity : AppCompatActivity() {
             this,
             { _, year, month, day ->
                 val dateStr = "${month + 1}/$day/$year"
-                if (isStartDate) {
-                    binding.etStartDate.setText(dateStr)
-                } else {
-                    binding.etEndDate.setText(dateStr)
-                }
+                if (isStartDate) binding.etStartDate.setText(dateStr)
+                else binding.etEndDate.setText(dateStr)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -87,38 +127,19 @@ class ProfileDetailsActivity : AppCompatActivity() {
     private fun validateInputs(): Boolean {
         return when {
             binding.spinnerDepartment.selectedItem == null -> {
-                showError("Please select your department")
+                showError("Please select department")
                 false
             }
             binding.etCGPA.text.isNullOrEmpty() -> {
-                showError("Please enter your CGPA")
+                showError("Please enter CGPA")
                 false
             }
             binding.etLinkedIn.text.isNullOrEmpty() -> {
-                showError("Please enter your LinkedIn profile")
+                showError("Please enter LinkedIn URL")
                 false
             }
             else -> true
         }
-    }
-
-    private fun saveProfileAndProceed() {
-        // Save profile logic here
-        markProfileComplete()
-
-        Toast.makeText(this, "Profile completed!", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        startActivity(intent)
-        finish() // Properly close ProfileDetailsActivity
-    }
-
-    private fun markProfileComplete() {
-        val sharedPref = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putBoolean("PROFILE_COMPLETE", true)
-        editor.apply()
     }
 
     private fun showError(message: String) {
