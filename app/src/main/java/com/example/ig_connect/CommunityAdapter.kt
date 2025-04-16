@@ -1,18 +1,28 @@
 package com.example.ig_connect
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ig_connect.Community
 
+class CommunityAdapter(
+    private val communityList: List<Community>,
+    private val onItemClick: (Community) -> Unit // <- Callback for click
+) : RecyclerView.Adapter<CommunityAdapter.CommunityViewHolder>() {
 
-class CommunityAdapter(private val communityList: List<Community>) :
-    RecyclerView.Adapter<CommunityAdapter.CommunityViewHolder>() {
-
-    class CommunityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class CommunityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.communityTitleTextView)
         val descriptionTextView: TextView = itemView.findViewById(R.id.communityDescriptionTextView)
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(communityList[position])
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommunityViewHolder {

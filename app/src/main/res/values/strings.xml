@@ -22,5 +22,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="sign_up">SIGN UP</string>
     <string name="already_have_account">Already have an account? Log In</string>
+    <string name="community_posts">Community Posts</string>
 
 </resources>

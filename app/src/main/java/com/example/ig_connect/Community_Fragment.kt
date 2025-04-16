@@ -1,5 +1,6 @@
 package com.example.ig_connect
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +32,12 @@ class Community_Fragment : Fragment() {
 
         // Step 3: Set up the RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = CommunityAdapter(communityList)
+        recyclerView.adapter = CommunityAdapter(communityList) { community ->
+            // Open the next activity or fragment
+            val intent = Intent(requireContext(), CommunityPostsActivity::class.java)
+            intent.putExtra("communityTitle", community.title) // Send community name to next screen
+            startActivity(intent)
+        }
 
         return view
     }
