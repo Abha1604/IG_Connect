@@ -7,62 +7,63 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.example.ig_connect.databinding.ActivityAfterLoginBinding
 import com.google.android.material.navigation.NavigationView
 
-class AfterLoginActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
-    private lateinit var fragmentManager: FragmentManager
-    private lateinit var binding:ActivityAfterLoginBinding
+class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var binding: ActivityAfterLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityAfterLoginBinding.inflate(/* inflater = */ LayoutInflater.from(this))
+        binding = ActivityAfterLoginBinding.inflate(LayoutInflater.from(this))
         enableEdgeToEdge()
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+
+        // Don’t set padding on the whole view anymore
+        // Instead, apply inset padding only to the bottom nav
+        ViewCompat.setOnApplyWindowInsetsListener(binding.bottomNavigation) { view, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            view.updatePadding(bottom = systemBars.bottom)
             insets
         }
+
+        // Setup toolbar
         setSupportActionBar(binding.toolbar)
+
+        // Default fragment
         openFragment(HomeFragment())
-        binding.bottomNavigation.background=null
+
+        // Make bottom nav background transparent if needed
+        binding.bottomNavigation.background = null
+
+        // Bottom nav item click handling
         binding.bottomNavigation.setOnItemSelectedListener { item ->
-            when(item.itemId){
-                R.id.home->openFragment(HomeFragment())
-                R.id.chats->openFragment(Chats_Fragment())
-                R.id.community->openFragment(Community_Fragment())
-                R.id.profile->openFragment(Profile_Fragment())
+            when (item.itemId) {
+                R.id.home -> openFragment(HomeFragment())
+                R.id.chats -> openFragment(Chats_Fragment())
+                R.id.community -> openFragment(Community_Fragment())
+                R.id.profile -> openFragment(Profile_Fragment())
             }
             true
         }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.home->openFragment(HomeFragment())
-            R.id.community->openFragment(Community_Fragment())
-            R.id.chats->openFragment(Chats_Fragment())
-            R.id.profile->openFragment(Profile_Fragment())
+        when (item.itemId) {
+            R.id.home -> openFragment(HomeFragment())
+            R.id.community -> openFragment(Community_Fragment())
+            R.id.chats -> openFragment(Chats_Fragment())
+            R.id.profile -> openFragment(Profile_Fragment())
         }
         return true
     }
-//    private fun openFragment(fragment:Fragment) {
-//        val fragmentTransaction:FragmentTransaction=fragmentManager.beginTransaction()
-//        fragmentTransaction.replace(R.id.fragment_container,fragment)
-//        fragmentTransaction.commit()
-//    }
-private fun openFragment(fragment: Fragment) {
-    val transaction = supportFragmentManager.beginTransaction()
-    transaction.replace(R.id.fragment_container, fragment) // Replace the container with the new fragment
-//    transaction.addToBackStack(null)  // Optionally add the transaction to the back stack so the user can navigate back
-    transaction.commit()  // Commit the transaction
-}
 
-
-
-
+    private fun openFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
 }
