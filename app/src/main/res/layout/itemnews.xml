@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
+    android:background="@android:color/transparent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ImageView for the image -->
     <ImageView
         android:id="@+id/image"
         android:layout_width="0dp"
@@ -14,6 +17,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
+    <!-- Title TextView -->
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
@@ -27,16 +31,17 @@
         android:layout_marginTop="12dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/image"/>
+
+    <!-- Author TextView (with default visibility if no content) -->
     <TextView
         android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/title"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
