@@ -5,6 +5,7 @@
     <dimen name="_24sdp">24dp</dimen>
     <dimen name="_13ssp">13sp</dimen>
     <dimen name="_10ssp">10sp</dimen>
+    <dimen name="_32sdp">32dp</dimen>
 
 
 </resources>
