@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/createPostHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create a Post ✍️"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_marginBottom="19dp" />
+
+
+    <EditText
+        android:id="@+id/postTitleInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter post title" />
+
+    <EditText
+        android:id="@+id/postContentInput"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:hint="Enter post content"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/submitPostButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/custom_green" />
+
+</LinearLayout>

@@ -6,6 +6,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.content.Intent
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CommunityPostsActivity : AppCompatActivity() {
 
@@ -47,5 +49,12 @@ class CommunityPostsActivity : AppCompatActivity() {
 
         postsRecyclerView.layoutManager = LinearLayoutManager(this)
         postsRecyclerView.adapter = PostAdapter(posts)
+
+        val fab = findViewById<FloatingActionButton>(R.id.addPostFab)
+        fab.setOnClickListener {
+            val intent = Intent(this, CreatePostActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
