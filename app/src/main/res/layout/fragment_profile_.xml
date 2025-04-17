@@ -30,7 +30,7 @@
             android:text="Jiya Sharma"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/blue"
+            android:textColor="@color/custom_green"
             android:gravity="center"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@id/profileImage"
@@ -90,7 +90,7 @@
                     android:text="Skills"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/blue"/>
+                    android:textColor="@color/custom_green"/>
 
                 <TextView
                     android:id="@+id/skillsList"
@@ -128,7 +128,7 @@
                     android:text="Projects"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/blue"/>
+                    android:textColor="@color/custom_green"/>
 
                 <TextView
                     android:id="@+id/projectDetails"
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:text="GitHub: github.com/JiyaSharma/IGConnect"
                     android:textSize="14sp"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/custom_green"
                     android:layout_marginTop="4dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -184,7 +184,7 @@
                     android:text="Social Links"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/blue"/>
+                    android:textColor="@color/custom_green"/>
 
                 <TextView
                     android:id="@+id/githubLink"
@@ -211,15 +211,15 @@
             android:id="@+id/editProfileButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Edit Profile"
-            android:textColor="@color/white"
-            android:background="@color/blue"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            app:layout_constraintTop_toBottomOf="@id/socialLinksCard"
-            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/custom_green"
+            android:text="Edit Profile"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/socialLinksCard" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
