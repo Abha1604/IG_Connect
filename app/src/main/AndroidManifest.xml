@@ -40,5 +40,6 @@
             android:exported="true" />
         <activity android:name=".CommunityPostsActivity" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
