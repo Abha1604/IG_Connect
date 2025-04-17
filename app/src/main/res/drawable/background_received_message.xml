@@ -9,7 +9,7 @@
     <solid android:color="@color/received_message_background" />
 
     <corners
-        android:bottomRightRadius-"@dimen/_245dp"
+        android:bottomRightRadius="@dimen/_24sdp"
         android:topLeftRadius="@dimen/_24sdp"
         android:topRightRadius="@dimen/_24sdp"/>
 </shape>
