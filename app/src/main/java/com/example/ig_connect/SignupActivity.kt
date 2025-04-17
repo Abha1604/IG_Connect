@@ -50,6 +50,7 @@ class SignupActivity : AppCompatActivity() {
             name.isEmpty() -> showError("Please enter your full name", nameInput)
             email.isEmpty() -> showError("Please enter your email", emailInput)
             !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> showError("Invalid email format", emailInput)
+            !email.endsWith("@igdtuw.ac.in") -> showError("Use your college email", emailInput)
             password.isEmpty() -> showError("Please enter a password", passwordInput)
             password.length < 6 -> showError("Password must be at least 6 characters", passwordInput)
             password != confirmPassword -> showError("Passwords don't match", confirmPasswordInput)

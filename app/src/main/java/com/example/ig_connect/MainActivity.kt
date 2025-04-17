@@ -25,14 +25,16 @@ class MainActivity : AppCompatActivity() {
             val email = emailInput.text.toString()
             val password = passwordInput.text.toString()
 
-            if (validateCredentials(email, password)) {
-                // Successful login - proceed to main app
+            val (isValid, errorMsg) = validateCredentials(email, password)
+
+            if (isValid) {
                 startActivity(Intent(this, AfterLoginActivity::class.java))
                 finish()
             } else {
-                Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, errorMsg ?: "Invalid credentials", Toast.LENGTH_SHORT).show()
             }
         }
+
 
         // Signup link click handler
         signupLink.setOnClickListener {
@@ -40,14 +42,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateCredentials(email: String, password: String): Boolean {
-        // Add your actual validation logic here
-        // For now, just checking non-empty fields
-        return email.isNotEmpty() && password.isNotEmpty()
+    private fun validateCredentials(email: String, password: String): Pair<Boolean, String?> {
+        if (email.isEmpty() || password.isEmpty()) {
+            return Pair(false, "Please fill in all fields.")
+        }
 
-        // In real app, you would:
-        // 1. Check email format
-        // 2. Check password strength
-        // 3. Verify against database
+        if (!email.endsWith("@igdtuw.ac.in")) {
+            return Pair(false, "Use valid college email")
+        }
+
+        if (password.length < 6) {
+            return Pair(false, "Password must be at least 6 characters long.")
+        }
+
+        return Pair(true, null)
     }
+
+
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "828713789098",
+    "project_id": "mad-project-effe3",
+    "storage_bucket": "mad-project-effe3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828713789098:android:639ee8cc4d3a226c5c92d3",
+        "android_client_info": {
+          "package_name": "com.example.ig_connect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPu-Zg1lLyv7rTIRW59_i83JuBCdFcIVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
