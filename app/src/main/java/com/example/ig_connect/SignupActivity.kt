@@ -1,13 +1,21 @@
 package com.example.ig_connect
-import android.util.Log
+
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ig_connect.data.models.RegisterRequest
+import com.example.ig_connect.data.models.RegisterResponse
 import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import org.json.JSONObject
 
 class SignupActivity : AppCompatActivity() {
 
@@ -54,7 +62,47 @@ class SignupActivity : AppCompatActivity() {
             password.isEmpty() -> showError("Please enter a password", passwordInput)
             password.length < 6 -> showError("Password must be at least 6 characters", passwordInput)
             password != confirmPassword -> showError("Passwords don't match", confirmPasswordInput)
-            else -> proceedToProfileDetails(name, email)
+            else -> registerUser(name, email, password, confirmPassword)
+        }
+    }
+
+    private fun registerUser(name: String, email: String, password: String, confirmPassword: String) {
+        val request = RegisterRequest(name = name, email = email, password = password, confirmPassword = confirmPassword)
+
+        RetrofitClient.instance.registerUser(request).enqueue(object : Callback<RegisterResponse> {
+            override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                if (response.isSuccessful && response.body() != null) {
+                    val data = response.body()
+                    Toast.makeText(this@SignupActivity, data?.success ?: "Registered", Toast.LENGTH_SHORT).show()
+
+                    // Save token to SharedPreferences
+                    val sharedPref = getSharedPreferences("IGConnectPrefs", Context.MODE_PRIVATE)
+                    sharedPref.edit().putString("auth_token", data?.token).apply()
+
+                    proceedToProfileDetails(data?.user?.name ?: name, data?.user?.email ?: email)
+                    Log.d("SignupFlow", "Token: ${data?.token}")
+                } else {
+                    // Extract error from the response
+                    val errorBody = response.errorBody()?.string()
+                    val errorMessage = extractErrorMessage(errorBody)
+                    Toast.makeText(this@SignupActivity, errorMessage, Toast.LENGTH_SHORT).show()
+                    Log.e("SignupFlow", "Backend error: $errorMessage")
+                }
+            }
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Toast.makeText(this@SignupActivity, "Network error: ${t.localizedMessage}", Toast.LENGTH_SHORT).show()
+                Log.e("SignupFlow", "API failure: ${t.message}")
+            }
+        })
+    }
+
+    private fun extractErrorMessage(json: String?): String {
+        return try {
+            val jsonObj = JSONObject(json ?: "")
+            jsonObj.getString("error") // or "message" based on backend response
+        } catch (e: Exception) {
+            "Something went wrong"
         }
     }
 
@@ -67,7 +115,6 @@ class SignupActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
 
-        // Add log to verify this code is reached
         Log.d("SignupFlow", "Navigating to ProfileDetails")
     }
 
