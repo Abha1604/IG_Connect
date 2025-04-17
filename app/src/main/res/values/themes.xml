@@ -19,4 +19,8 @@
         <item name="android:fontFamily">@font/montserrat</item>
     </style>
     <style name="Theme.IG_Connect" parent="Base.Theme.IG_Connect" />
+    <style name="Theme.ChatApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
+    </style>
 </resources>
