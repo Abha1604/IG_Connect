@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:shape="rectangle"
+    tools:ignore="ExtraText">
+
+    <solid android:color="@color/received_message_background" />
+
+    <corners
+        android:bottomRightRadius-"@dimen/_245dp"
+        android:topLeftRadius="@dimen/_24sdp"
+        android:topRightRadius="@dimen/_24sdp"/>
+</shape>
