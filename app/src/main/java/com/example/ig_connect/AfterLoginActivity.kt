@@ -43,7 +43,7 @@ class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> openFragment(HomeFragment())
-                R.id.chats -> openFragment(Chats_Fragment())
+                R.id.chats -> openFragment(ChatsFragment())
                 R.id.community -> openFragment(Community_Fragment())
                 R.id.profile -> openFragment(Profile_Fragment())
             }
@@ -55,7 +55,7 @@ class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         when (item.itemId) {
             R.id.home -> openFragment(HomeFragment())
             R.id.community -> openFragment(Community_Fragment())
-            R.id.chats -> openFragment(Chats_Fragment())
+            R.id.chats -> openFragment(ChatsFragment())
             R.id.profile -> openFragment(Profile_Fragment())
         }
         return true

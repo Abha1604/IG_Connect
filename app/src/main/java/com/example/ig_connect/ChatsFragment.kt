@@ -1,0 +1,55 @@
+package com.example.ig_connect
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ig_connect.adapters.UsersAdapter
+import com.example.ig_connect.databinding.FragmentChatsBinding
+import com.example.ig_connect.models_chat.User
+
+class ChatsFragment : Fragment() {
+
+    private lateinit var binding: FragmentChatsBinding
+    private lateinit var usersAdapter: UsersAdapter
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentChatsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val users = listOf(
+            User().apply {
+                id = "1"
+                name = "John Doe"
+                email = "john@example.com"
+            },
+            User().apply {
+                id = "2"
+                name = "Jane Smith"
+                email = "jane@example.com"
+            }
+        )
+
+        usersAdapter = UsersAdapter(users) { user ->
+            val intent = Intent(requireContext(), ChatActivity::class.java)
+            intent.putExtra("userName", user.name)
+            intent.putExtra("userEmail", user.email)
+            startActivity(intent)
+        }
+
+        binding.recyclerViewUsers.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = usersAdapter
+        }
+    }
+}

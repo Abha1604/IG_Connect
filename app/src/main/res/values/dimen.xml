@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margin & Padding -->
+    <dimen name="_4sdp">4dp</dimen>
+    <dimen name="_5sdp">5dp</dimen>
+    <dimen name="_8sdp">8dp</dimen>
+    <dimen name="_12sdp">12dp</dimen>
+    <dimen name="_14sdp">14dp</dimen>
+    <dimen name="_16sdp">16dp</dimen>
+    <dimen name="_20sdp">20dp</dimen>
+    <dimen name="_25sdp">25dp</dimen>
+    <dimen name="_30sdp">30dp</dimen>
+    <dimen name="_40sdp">40dp</dimen>
+
+    <!-- Custom scaled size (used like sp) -->
+    <dimen name="_14ssp">14sp</dimen>
+
+    <!-- Optional font sizes if needed -->
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_title">20sp</dimen>
+</resources>
