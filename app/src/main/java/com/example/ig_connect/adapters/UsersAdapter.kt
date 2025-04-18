@@ -1,45 +1,41 @@
 package com.example.ig_connect.adapters
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.util.Base64
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ig_connect.R
 import com.example.ig_connect.models_chat.User
-import com.example.ig_connect.databinding.ItemContainerUserBinding
 
-class UsersAdapter(private val users: List<User>) :
-    RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
+class UsersAdapter(
+    private val userList: List<User>,
+    private val onUserClicked: (User) -> Unit
+) : RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
+
+    inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textViewName: TextView = itemView.findViewById(R.id.textViewName)
+        val textViewEmail: TextView = itemView.findViewById(R.id.textViewEmail)
+
+        init {
+            itemView.setOnClickListener {
+                onUserClicked(userList[adapterPosition])
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val binding = ItemContainerUserBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
-        return UserViewHolder(binding)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
+        return UserViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.setUserData(users[position])
+        val user = userList[position]
+        holder.textViewName.text = user.name
+        holder.textViewEmail.text = user.email
     }
 
     override fun getItemCount(): Int {
-        return users.size
-    }
-
-    inner class UserViewHolder(private val binding: ItemContainerUserBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun setUserData(user: User) {
-            binding.textName.text = user.name
-            binding.textEmail.text = user.email
-            binding.imageProfile.setImageBitmap(getUserImage(user.image))
-        }
-
-        private fun getUserImage(encodedImage: String?): Bitmap? {
-            if (encodedImage == null) return null
-            val bytes = Base64.decode(encodedImage, Base64.DEFAULT)
-            return BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-        }
+        return userList.size
     }
 }

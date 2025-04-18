@@ -15,12 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IG_Connect"
         tools:targetApi="31">
-        <activity
-            android:name=".UsersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".network.UsersActivity"
-            android:exported="false" />
+
         <activity
             android:name=".CreatePostActivity"
             android:exported="false" /> <!-- <activity -->
@@ -45,6 +40,8 @@
             android:name=".ProfileDetailsActivity"
             android:exported="true" />
         <activity android:name=".CommunityPostsActivity" />
+        <activity android:name=".ChatActivity" />
+
     </application>
 
 </manifest>
