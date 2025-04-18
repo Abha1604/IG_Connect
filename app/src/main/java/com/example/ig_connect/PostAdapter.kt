@@ -39,6 +39,7 @@ class PostAdapter( private val postList: List<Post>, private val context: Contex
         holder.replyButton.setOnClickListener {
             val intent = Intent(context, ReplyActivity::class.java)
             intent.putExtra("postId", post.id)
+            intent.putExtra("postContent", post.content)
             context.startActivity(intent)
         }
 

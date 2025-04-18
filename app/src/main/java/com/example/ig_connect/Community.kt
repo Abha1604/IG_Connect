@@ -1,5 +1,6 @@
 package com.example.ig_connect
 data class Community(
     val title: String,
-    val description: String
+    val description: String,
+    val iconResId: Int
 )

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ig_connect.Community
 
 class Community_Fragment : Fragment() {
 
@@ -24,11 +23,12 @@ class Community_Fragment : Fragment() {
 
         // Step 2: Create a list of communities
         val communityList = listOf(
-            Community("CGPA", "For academic help, study resources, peer advice."),
-            Community("Hackathons", "Share upcoming hackathons, teams, ideas, and experiences."),
-            Community("Internships/Placements", "Resume reviews, company insights, interview tips."),
-            Community("General (Chill Zone)", "Memes, rants, or casual posts to keep it fun and lively.")
+            Community("CGPA", "For academic help, study resources, peer advice.", R.drawable.ic_study),
+            Community("Hackathons", "Share upcoming hackathons, teams, ideas, and experiences.", R.drawable.ic_hackathon),
+            Community("Internships/Placements", "Resume reviews, company insights, interview tips.", R.drawable.ic_intern),
+            Community("General (Chill Zone)", "Memes, rants, or casual posts to keep it fun and lively.", R.drawable.ic_fun)
         )
+
 
         // Step 3: Set up the RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
