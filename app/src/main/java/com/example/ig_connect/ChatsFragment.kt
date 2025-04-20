@@ -39,6 +39,7 @@ class ChatsFragment : Fragment() {
         val users = listOf(
             User().apply {
                 id = "1"
+<<<<<<< HEAD
                 name = "Aayush"
                 email = "aayush@example.com"
                 profileImage = R.drawable.ic_profile_placeholder
@@ -54,6 +55,30 @@ class ChatsFragment : Fragment() {
         )
 
         usersAdapter = UsersAdapter(users)
+=======
+                name = "Diya Kotru"
+                email = "diya.kotru@example.com"
+            },
+            User().apply {
+                id = "2"
+                name = "Dimpal Agarwal"
+                email = "dimpal.agarwal@example.com"
+            },
+            User().apply {
+                id = "3"
+                name = "Jaanvi Chaudhary"
+                email = "jaanvi.chaudhary@example.com"
+            }
+        )
+
+
+        usersAdapter = UsersAdapter(users) { user ->
+            val intent = Intent(requireContext(), ChatActivity::class.java)
+            intent.putExtra("userName", user.name)
+            intent.putExtra("userEmail", user.email)
+            startActivity(intent)
+        }
+>>>>>>> f2d77f5fd85b8ab3b3c9b047e601e996701341a6
 
         binding.recyclerViewUsers.apply {
             layoutManager = LinearLayoutManager(requireContext())

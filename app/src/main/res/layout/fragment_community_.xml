@@ -4,8 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Community_Fragment">
+    tools:context=".Community_Fragment"
+    android:padding="16dp">
 
+
+
+    <!-- Heading above the cards -->
+    <TextView
+        android:id="@+id/communityHeadingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Choose a Community to Explore 🔍"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:textColor="#5b894b"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="5dp" />
 
     <!-- RecyclerView to show the list of community cards -->
     <androidx.recyclerview.widget.RecyclerView
@@ -15,8 +31,8 @@
         android:paddingTop="5dp"
         android:layout_marginTop="20dp"
         android:clipToPadding="false"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/communityHeadingText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/list_of_communities"
