@@ -5,38 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_profile_placeholder"
-        android:scaleType="centerCrop"
-        android:background="@drawable/circle_background"
-        android:layout_margin="8dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- RecyclerView to show list of contacts -->
-=======
->>>>>>> f2d77f5fd85b8ab3b3c9b047e601e996701341a6
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUsers"
         android:layout_width="0dp"
         android:layout_height="0dp"
-<<<<<<< HEAD
-        android:clipToPadding="false"
-        android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/profileImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-=======
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:clipToPadding="false"/>
->>>>>>> f2d77f5fd85b8ab3b3c9b047e601e996701341a6
 </androidx.constraintlayout.widget.ConstraintLayout>
