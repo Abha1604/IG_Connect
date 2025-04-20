@@ -6,4 +6,5 @@ class User : Serializable {
     var id: String? = null
     var name: String? = null
     var email: String? = null
+    var profileImage: Int? = null  // 👈 ADD THIS
 }
