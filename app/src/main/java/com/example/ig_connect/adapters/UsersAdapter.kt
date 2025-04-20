@@ -14,7 +14,7 @@ import com.example.ig_connect.models_chat.User
 class UsersAdapter(private val userList: List<User>) : RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
 
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageViewProfile: ImageView = itemView.findViewById(R.id.imageViewProfile)
+        val imageViewProfile: ImageView = itemView.findViewById(R.id.imageProfile)
         val textViewName: TextView = itemView.findViewById(R.id.textViewName)
         val textViewEmail: TextView = itemView.findViewById(R.id.textViewEmail)
     }
@@ -29,23 +29,18 @@ class UsersAdapter(private val userList: List<User>) : RecyclerView.Adapter<User
         holder.textViewName.text = user.name
         holder.textViewEmail.text = user.email
 
-        // Set profile image from the User model
         user.profileImage?.let { imageRes ->
             holder.imageViewProfile.setImageResource(imageRes)
         }
 
-
-        // Click to open chat
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, ChatActivity::class.java)
             intent.putExtra("userName", user.name)
-            intent.putExtra("userProfile", user.profileImage)  // pass profile if needed
+            intent.putExtra("userProfile", user.profileImage)
             context.startActivity(intent)
         }
     }
 
-    override fun getItemCount(): Int {
-        return userList.size
-    }
+    override fun getItemCount(): Int = userList.size
 }
