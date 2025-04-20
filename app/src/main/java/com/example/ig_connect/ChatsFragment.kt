@@ -30,15 +30,21 @@ class ChatsFragment : Fragment() {
         val users = listOf(
             User().apply {
                 id = "1"
-                name = "John Doe"
-                email = "john@example.com"
+                name = "Diya Kotru"
+                email = "diya.kotru@example.com"
             },
             User().apply {
                 id = "2"
-                name = "Jane Smith"
-                email = "jane@example.com"
+                name = "Dimpal Agarwal"
+                email = "dimpal.agarwal@example.com"
+            },
+            User().apply {
+                id = "3"
+                name = "Jaanvi Chaudhary"
+                email = "jaanvi.chaudhary@example.com"
             }
         )
+
 
         usersAdapter = UsersAdapter(users) { user ->
             val intent = Intent(requireContext(), ChatActivity::class.java)
