@@ -1,5 +1,6 @@
 package com.example.ig_connect
 
+import androidx.appcompat.app.AppCompatDelegate
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -17,6 +18,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
 
         // Check token in SharedPreferences

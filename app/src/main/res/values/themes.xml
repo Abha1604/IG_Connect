@@ -1,25 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.IG_Connect" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/blue</item>
+    <style name="Base.Theme.IG_Connect" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/blue</item>
         <item name="android:statusBarColor">@color/blue</item>
     </style>
 
-    <style name="Theme.IGConnect" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        ...
+    <style name="Theme.IGConnect" parent="Theme.Material3.Light.NoActionBar">
         <item name="fontFamily">@font/montserrat</item>
         <item name="textAppearanceHeadline1">@style/TextAppearance.IGConnect.Headline1</item>
     </style>
 
     <!-- Text appearances -->
-    <style name="TextAppearance.IGConnect.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+    <style name="TextAppearance.IGConnect.Headline1" parent="TextAppearance.Material3.HeadlineLarge">
         <item name="fontFamily">@font/montserrat</item>
         <item name="android:fontFamily">@font/montserrat</item>
     </style>
+
     <style name="Theme.IG_Connect" parent="Base.Theme.IG_Connect" />
-    <style name="Theme.ChatApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    <style name="Theme.ChatApp" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
     </style>
