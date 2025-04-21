@@ -84,4 +84,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+    private fun logoutUser() {
+        // Clear the token from SharedPreferences
+        val sharedPref = getSharedPreferences("IGConnectPrefs", Context.MODE_PRIVATE)
+        sharedPref.edit().remove("auth_token").apply()
+
+        // Redirect to MainActivity (login screen)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()  // Optionally finish the current activity
+    }
+
 }

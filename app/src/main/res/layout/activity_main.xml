@@ -6,7 +6,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     android:padding="24dp"
     tools:context=".MainActivity">
 
@@ -17,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textSize="24sp"
-        android:textColor="@color/black"
+        android:textColor="@color/green_700"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:textColor="@color/green_700"
+            app:hintTextColor="@color/green_400"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password Input -->
@@ -60,7 +61,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="@color/green_700"
+            app:hintTextColor="@color/green_400"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Login Button -->
@@ -69,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
-        android:backgroundTint="@color/darkBlue"
+        android:backgroundTint="@color/green_500"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/passwordLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,14 +85,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_up_prompt"
-        android:textColor="@color/darkBlue"
+        android:textColor="@color/green_500"
         app:layout_constraintTop_toBottomOf="@id/loginButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:focusable="true"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

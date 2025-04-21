@@ -6,25 +6,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     android:padding="24dp"
     tools:context=".SignupActivity">
 
-    <!-- App Logo/Title -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/create_account"
         android:textSize="24sp"
-        android:textColor="@color/black"
+        android:textColor="@color/green_700"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/nameInput"/>
 
-    <!-- Full Name Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nameLayout"
         android:layout_width="match_parent"
@@ -40,10 +37,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/full_name"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:textColor="@color/green_700"
+            app:hintTextColor="@color/green_400"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Email Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
         android:layout_width="match_parent"
@@ -59,10 +57,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:textColor="@color/green_700"
+            app:hintTextColor="@color/green_400"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Password Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
         android:layout_width="match_parent"
@@ -78,10 +77,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="@color/green_700"
+            app:hintTextColor="@color/green_400"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Confirm Password Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/confirmPasswordLayout"
         android:layout_width="match_parent"
@@ -97,29 +97,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="@color/green_700"
+            app:hintTextColor="@color/green_400"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Signup Button -->
     <Button
         android:id="@+id/signupButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
-        android:backgroundTint="@color/darkBlue"
+        android:backgroundTint="@color/green_500"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/confirmPasswordLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"/>
 
-    <!-- Login Link -->
     <TextView
         android:id="@+id/loginLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/already_have_account"
-        android:textColor="@color/darkBlue"
+        android:textColor="@color/green_500"
         app:layout_constraintTop_toBottomOf="@id/signupButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
