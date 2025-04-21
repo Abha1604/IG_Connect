@@ -1,7 +1,9 @@
 package com.example.ig_connect
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -51,6 +53,37 @@ class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         }
     }
 
+    // Inflate the menu (logout button in the toolbar)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)  // Inflate the logout button menu
+        return true
+    }
+
+    // Handle logout logic when the menu item is selected
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_logout -> {
+                // Logout the user and navigate to the login screen
+                logoutUser()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    // Function to log out the user and redirect to the login screen (MainActivity)
+    private fun logoutUser() {
+        // Clear the token from SharedPreferences
+        val sharedPref = getSharedPreferences("IGConnectPrefs", MODE_PRIVATE)
+        sharedPref.edit().remove("auth_token").apply()
+
+        // Navigate back to the MainActivity (login screen)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()  // Optionally finish the current activity
+    }
+
+    // Handle navigation item selections (for bottom navigation or drawer)
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.home -> openFragment(HomeFragment())
@@ -61,6 +94,7 @@ class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         return true
     }
 
+    // Open the specified fragment in the container
     private fun openFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
