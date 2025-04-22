@@ -31,7 +31,7 @@ class ChatActivity : AppCompatActivity() {
         toolbarImage = findViewById(R.id.toolbarProfileImage)
 
         // Set user name and profile image
-        toolbarName.text = "Aayush"  // You can set this dynamically
+        toolbarName.text = "Diya Kotru"  // You can set this dynamically
         toolbarImage.setImageResource(R.drawable.ic_profile_placeholder) // Set your placeholder vector drawable here
 
         // Initialize message area
