@@ -1,10 +1,10 @@
 package com.example.ig_connect.models_chat
 
-import java.io.Serializable
+import com.example.ig_connect.R
 
-class User : Serializable {
-    var id: String? = null
-    var name: String? = null
-    var email: String? = null
-    var profileImage: Int? = null  // 👈 ADD THIS
-}
+data class User(
+    var id: String = "",
+    var name: String = "",
+    var email: String = "",
+    var profileImage: Int = R.drawable.ic_profile_placeholder
+)

@@ -57,7 +57,15 @@ class ChatsFragment : Fragment() {
             }
         )
 
-        usersAdapter = UsersAdapter(users)
+        usersAdapter = UsersAdapter(users) { user ->
+            // On user click, pass user data to the ChatActivity
+            val intent = Intent(requireContext(), ChatActivity::class.java)
+            intent.putExtra("userName", user.name)
+            intent.putExtra("profileImage", user.profileImage)
+            startActivity(intent)
+        }
+
+
 
 
         binding.recyclerViewUsers.apply {
