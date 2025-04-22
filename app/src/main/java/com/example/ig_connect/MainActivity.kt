@@ -1,5 +1,6 @@
 package com.example.ig_connect
 
+import androidx.appcompat.app.AppCompatDelegate
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -17,6 +18,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
 
         // Check token in SharedPreferences
@@ -82,4 +84,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+    private fun logoutUser() {
+        // Clear the token from SharedPreferences
+        val sharedPref = getSharedPreferences("IGConnectPrefs", Context.MODE_PRIVATE)
+        sharedPref.edit().remove("auth_token").apply()
+
+        // Redirect to MainActivity (login screen)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()  // Optionally finish the current activity
+    }
+
 }
