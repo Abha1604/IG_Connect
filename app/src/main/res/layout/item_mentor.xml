@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:elevation="4dp"
+    android:backgroundTint="@android:color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_margin="4dp">
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/mentorProfileImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_profile_placeholder"
+            android:contentDescription="Mentor Profile Image"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/circle_background" />
+
+        <!-- Mentor Name -->
+        <TextView
+            android:id="@+id/mentorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Doe"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <!-- Year and Branch -->
+        <TextView
+            android:id="@+id/mentorDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year, Branch"
+            android:textSize="10sp"
+            android:textColor="@android:color/darker_gray"
+            android:visibility="visible"
+        android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+    <!--edit 2<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.cardview.widget.CardView-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_margin="6dp"-->
+<!--    android:elevation="4dp"-->
+<!--    android:backgroundTint="@android:color/white"-->
+<!--    app:cardCornerRadius="8dp"-->
+<!--    app:cardElevation="4dp">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="8dp"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_margin="4dp">-->
+
+<!--        &lt;!&ndash; Profile Image &ndash;&gt;-->
+<!--        <ImageView-->
+<!--            android:id="@+id/mentorProfileImage"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/ic_profile_placeholder"-->
+<!--            android:contentDescription="Mentor Profile Image"-->
+<!--            android:layout_marginBottom="6dp"-->
+<!--            android:background="@drawable/circle_background" />-->
+
+<!--        &lt;!&ndash; Mentor Name &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/mentorName"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="John Doe"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center" />-->
+
+<!--        &lt;!&ndash; Year and Branch &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/mentorDetails"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="2025 | CSE"-->
+<!--            android:textColor="@android:color/darker_gray"-->
+<!--            android:textSize="12sp"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginTop="4dp"/>-->
+<!--    </LinearLayout>-->
+<!--</androidx.cardview.widget.CardView>-->
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical"-->
+<!--    android:gravity="center"-->
+<!--    android:layout_margin="8dp">-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/mentorProfileImage"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginBottom="4dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:background="@drawable/circle_background"-->
+<!--        android:src="@drawable/ic_profile_placeholder"-->
+<!--        android:clipToOutline="true" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/mentorName"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Mentor"-->
+<!--        android:textSize="12sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@android:color/black" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/mentorDetails"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="3rd Year, CSE"-->
+<!--        android:textSize="10sp"-->
+<!--        android:textColor="#666666" />-->
+<!--</LinearLayout>-->
