@@ -1,5 +1,7 @@
 package com.example.ig_connect
 
+import EditProfileFragment
+import ProfileFragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -47,7 +49,7 @@ class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 R.id.home -> openFragment(HomeFragment())
                 R.id.chats -> openFragment(ChatsFragment())
                 R.id.community -> openFragment(Community_Fragment())
-                R.id.profile -> openFragment(Profile_Fragment())
+                R.id.profile -> openFragment(ProfileFragment())
             }
             true
         }
@@ -89,7 +91,7 @@ class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             R.id.home -> openFragment(HomeFragment())
             R.id.community -> openFragment(Community_Fragment())
             R.id.chats -> openFragment(ChatsFragment())
-            R.id.profile -> openFragment(Profile_Fragment())
+            R.id.profile -> openFragment(ProfileFragment())
         }
         return true
     }
