@@ -15,7 +15,7 @@
         android:background="@color/custom_green"
         android:elevation="4dp"
         android:titleTextColor="@android:color/white"
-        android:title="IGConnect"
+        android:title="IG_Connect"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:layout_constraintTop_toTopOf="parent"
@@ -33,12 +33,12 @@
         <!-- Circular Logo Image -->
         <ImageView
             android:id="@+id/toolbar_logo"
-            android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/app_logo"
-        android:layout_marginEnd="8dp"
+            android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/newapplogo"
+        android:layout_marginEnd="6dp"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/circle_background"
+
         />
 
         <!-- Title Text -->
@@ -46,7 +46,7 @@
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="IGConnect"
+            android:text="IG_Connect"
         android:textSize="25sp"
         android:textColor="@android:color/white"
 
