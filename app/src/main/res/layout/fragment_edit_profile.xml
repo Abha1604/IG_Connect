@@ -11,13 +11,30 @@
 
         <!-- Profile Image -->
         <ImageView
-            android:id="@+id/profileImage"
+            android:id="@+id/profileImageView"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/ic_profile"
             android:scaleType="centerCrop"
             android:background="@drawable/profile_circle"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/CircularImage"/>
+
+        <!-- Upload Image Text -->
+        <TextView
+            android:id="@+id/uploadImageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Image"
+            android:textColor="@color/custom_green"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintTop_toBottomOf="@id/profileImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -33,7 +50,7 @@
             android:gravity="center"
             android:layout_marginTop="16dp"
             android:hint="Enter your name"
-            app:layout_constraintTop_toBottomOf="@id/profileImage"
+            app:layout_constraintTop_toBottomOf="@id/uploadImageText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -151,7 +168,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
-
                     android:text="Tech: Kotlin, Firebase, Firestore"
                     android:textSize="14sp"
                     android:textColor="@color/gray_700"
@@ -171,7 +187,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- GitHub and LinkedIn Card -->
+        <!-- Social Links Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/socialLinksCard"
             android:layout_width="0dp"
@@ -229,10 +245,10 @@
             android:backgroundTint="@color/custom_green"
             android:text="Save Profile"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/socialLinksCard"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/socialLinksCard" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

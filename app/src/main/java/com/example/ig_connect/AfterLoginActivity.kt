@@ -1,6 +1,6 @@
 package com.example.ig_connect
 
-import EditProfileFragment
+
 import ProfileFragment
 import android.content.Intent
 import android.os.Bundle

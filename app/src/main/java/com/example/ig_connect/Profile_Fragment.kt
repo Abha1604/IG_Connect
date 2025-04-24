@@ -1,3 +1,4 @@
+import android.net.Uri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import android.os.Bundle
+import android.widget.ImageView
+import com.example.ig_connect.EditProfileFragment
 import com.example.ig_connect.R
 
 class ProfileFragment : Fragment() {
@@ -33,6 +36,7 @@ class ProfileFragment : Fragment() {
         val projectTech = view.findViewById<TextView>(R.id.projectTech)
         val github = view.findViewById<TextView>(R.id.githubLink)
         val linkedin = view.findViewById<TextView>(R.id.linkedinLink)
+        val profileImage = view.findViewById<ImageView>(R.id.profileImage)//new
         val editBtn = view.findViewById<Button>(R.id.editProfileButton)
 
         viewModel.profileName.observe(viewLifecycleOwner) { name.text = it }
@@ -43,6 +47,12 @@ class ProfileFragment : Fragment() {
         viewModel.projectTech.observe(viewLifecycleOwner) { projectTech.text = it }
         viewModel.githubLink.observe(viewLifecycleOwner) { github.text = "GitHub: $it" }
         viewModel.linkedinLink.observe(viewLifecycleOwner) { linkedin.text = "LinkedIn: $it" }
+
+        viewModel.profileImageUri.observe(viewLifecycleOwner) {
+            it?.let { uri ->
+                profileImage.setImageURI(Uri.parse(uri))
+            }
+        }
 
         editBtn.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()

@@ -10,4 +10,5 @@ class ProfileViewModel : ViewModel() {
     val projectTech = MutableLiveData<String>("Tech: Kotlin, Firebase, Firestore")
     val githubLink = MutableLiveData<String>("https://github.com/JiyaSharma")
     val linkedinLink = MutableLiveData<String>("https://linkedin.com/in/jiya-sharma")
+    val profileImageUri = MutableLiveData<String?>()
 }
