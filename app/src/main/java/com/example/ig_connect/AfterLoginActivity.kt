@@ -3,7 +3,10 @@ package com.example.ig_connect
 
 import ProfileFragment
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -36,6 +39,13 @@ class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
         // Setup toolbar
         setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        // Set the title for the toolbar
+
+//        // Set the logo for the toolbar
+//        supportActionBar?.setLogo(R.drawable.app_logo) // Use your app logo here
+//        supportActionBar?.setDisplayUseLogoEnabled(true) // Enable the logo to act as home icon
+//        supportActionBar?.setDisplayShowHomeEnabled(true) // Make the logo visible
 
         // Default fragment
         openFragment(HomeFragment())
@@ -58,6 +68,15 @@ class AfterLoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     // Inflate the menu (logout button in the toolbar)
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)  // Inflate the logout button menu
+        val logoutItem = menu?.findItem(R.id.action_logout)
+
+        // Setting color of the title to white (using a custom TextView approach)
+        if (logoutItem != null) {
+            val spannable = SpannableString(logoutItem.title)
+            spannable.setSpan(ForegroundColorSpan(Color.WHITE), 0, spannable.length, 0)
+            logoutItem.title = spannable  // Apply the color change
+        }
+
         return true
     }
 
