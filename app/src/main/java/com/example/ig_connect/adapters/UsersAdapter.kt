@@ -15,7 +15,7 @@ class UsersAdapter(
 ) : RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
 
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val userImage: ImageView = itemView.findViewById(R.id.imageProfile)
+        val userImage: ImageView = itemView.findViewById(R.id.profileImage)
         val userName: TextView = itemView.findViewById(R.id.textViewName)
         val userEmail: TextView = itemView.findViewById(R.id.textViewEmail)
 

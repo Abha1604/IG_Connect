@@ -40,19 +40,19 @@ class ChatsFragment : Fragment() {
             User().apply {
                 id = "1"
                 name = "Diya Kotru"
-                email = "diya.kotru@example.com"
+                email = "diya.kotru@@igdtuw.ac.in"
                 profileImage = R.drawable.ic_profile_placeholder
             },
             User().apply {
                 id = "2"
                 name = "Dimpal Agarwal"
-                email = "dimpal.agarwal@example.com"
+                email = "dimpal.agarwal@@igdtuw.ac.in"
                 profileImage = R.drawable.ic_profile_placeholder
             },
             User().apply {
                 id = "3"
                 name = "Jaanvi Chaudhary"
-                email = "jaanvi.chaudhary@example.com"
+                email = "jaanvi.chaudhary@igdtuw.ac.in"
                 profileImage = R.drawable.ic_profile_placeholder
             }
         )

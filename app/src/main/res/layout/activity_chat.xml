@@ -1,89 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chatRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:padding="0dp">
 
-    <!-- Chat Header with Profile and User Name -->
+    <!-- Chat Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingBottom="12dp"
         android:background="@color/custom_green"
-        android:padding="12dp">
+        android:padding="16dp">
 
-        <!-- Profile Image -->
         <ImageView
             android:id="@+id/profileImageChat"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="12dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_profile_placeholder"
-            android:contentDescription="User Profile Image"
-            android:background="@drawable/circle_background"/>
+            android:contentDescription="Profile Image"
+            android:background="@drawable/circle_background"
+            android:layout_marginEnd="16dp"/>
 
-        <!-- Chat Header Text -->
         <TextView
             android:id="@+id/chatHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Diya Kotru"
-            android:textSize="18sp"
+            android:text="Chat Name"
             android:textColor="@android:color/white"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_gravity="center_vertical"/>
+            android:maxLines="1"
+            android:ellipsize="end"/>
     </LinearLayout>
 
-    <!-- RecyclerView to show chat messages -->
+    <!-- RecyclerView (Chat Messages) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMessages"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
         android:layout_weight="1"
-        android:paddingTop="8dp"/>
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:overScrollMode="never" />
 
-    <!-- Input Field and Send Button at the Bottom -->
+    <!-- Message Input and Send -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingTop="8dp"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:padding="12dp">
 
-        <!-- Message Input -->
         <EditText
             android:id="@+id/messageInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Type a message..."
-            android:padding="12dp"
             android:textColor="#000000"
-            android:inputType="text"
-            android:maxLines="1"
             android:textSize="14sp"
-            android:lineSpacingExtra="4dp"/>
+            android:padding="12dp"
+            android:lineSpacingExtra="4dp"
+            android:maxLines="5"
+            android:background="@drawable/edittext_background"
+            android:inputType="text" />
 
-        <!-- Send Button -->
         <ImageView
             android:id="@+id/sendButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/ic_send"
             android:layout_marginStart="8dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="Send Message"
+            android:contentDescription="Send"
             android:background="@drawable/circle_background"
-            android:padding="12dp"/>
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true"/>
     </LinearLayout>
 
 </LinearLayout>

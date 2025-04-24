@@ -1,6 +1,6 @@
-package com.example.ig_connect.models_chat
-
 data class Message(
-    val text: String,
-    val isSentByMe: Boolean
+    val content: String,
+    val sender: String,
+    val profileImageUrl: String, // URL for the profile image
+    val isSent: Boolean // This helps to align messages
 )
